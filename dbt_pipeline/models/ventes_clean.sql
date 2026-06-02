@@ -8,3 +8,5 @@ SELECT
     ville
 FROM {{ source('raw', 'ventes_raw') }}
 WHERE quantite > 0 AND prix_unitaire > 0
+
+

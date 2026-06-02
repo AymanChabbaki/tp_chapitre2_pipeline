@@ -2,6 +2,7 @@ version: 2
 
 sources:
   - name: raw
+    database: ventes
     schema: main
     tables:
       - name: ventes_raw
