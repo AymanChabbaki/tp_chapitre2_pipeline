@@ -21,14 +21,14 @@ jobs:
     - name: Install dependencies
       run: |
         python -msip install --upgrade pip || python -m pip install --upgrade pip
-        if [ -f tp_chapitre2_pipeline/requirements.txt ]; then
-          pip install -r tp_chapitre2_pipeline/requirements.txt
+        if [ -f requirements.txt ]; then
+          pip install -r requirements.txt
         else
           pip install dlt dagster dagster-webserver dbt-core dbt-duckdb pandas duckdb pyyaml
         fi
 
     - name: Syntax check (py_compile)
       run: |
-        python -m py_compile tp_chapitre2_pipeline/pipeline/ingest.py
-        python -m py_compile tp_chapitre2_pipeline/pipeline/validate.py
-        python -m py_compile tp_chapitre2_pipeline/pipeline/orchestrate.py
+        python -m py_compile pipeline/ingest.py
+        python -m py_compile pipeline/validate.py
+        python -m py_compile pipeline/orchestrate.py
