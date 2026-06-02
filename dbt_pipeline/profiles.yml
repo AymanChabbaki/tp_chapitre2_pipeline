@@ -1,0 +1,7 @@
+dbt_pipeline:
+  outputs:
+    dev:
+      type: duckdb
+      path: ../ventes.duckdb
+      threads: 1
+  target: dev

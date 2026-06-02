@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: main
+    tables:
+      - name: ventes_raw
+
+models:
+  - name: ventes_clean
+    description: "Table des ventes nettoyées avec calcul du chiffre d'affaires."
+    columns:
+      - name: produit
+        description: "Nom du produit vendu."
+        tests:
+          - not_null
+      - name: quantite
+        description: "Quantité vendue."
+        tests:
+          - not_null
+
+  - name: ventes_resume
+    description: "Résumé des ventes agrégées par catégorie de produit."
+    columns:
+      - name: categorie
+        description: "Catégorie du produit."
+        tests:
+          - not_null

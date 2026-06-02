@@ -1,0 +1,8 @@
+date,produit,categorie,quantite,prix_unitaire,ville
+2026-06-01,Ordinateur Portable,informatique,5,800.00,Paris
+2026-06-01,Ecran 24 pouces,informatique,10,150.00,Lyon
+2026-06-02,Bureau Design,mobilier,2,350.00,Marseille
+2026-06-02,Chaise Ergonomique,mobilier,0,120.00,Paris
+2026-06-02,Clavier Mecanique,informatique,15,80.00,Lille
+2026-06-03,Souris Sans Fil,informatique,20,25.00,Lyon
+2026-06-03,Armoire de Rangement,mobilier,3,450.00,Marseille

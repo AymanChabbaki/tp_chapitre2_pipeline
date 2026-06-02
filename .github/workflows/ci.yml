@@ -1,0 +1,34 @@
+name: CI Pipeline Check
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -msip install --upgrade pip || python -m pip install --upgrade pip
+        if [ -f tp_chapitre2_pipeline/requirements.txt ]; then
+          pip install -r tp_chapitre2_pipeline/requirements.txt
+        else
+          pip install dlt dagster dagster-webserver dbt-core dbt-duckdb pandas duckdb pyyaml
+        fi
+
+    - name: Syntax check (py_compile)
+      run: |
+        python -m py_compile tp_chapitre2_pipeline/pipeline/ingest.py
+        python -m py_compile tp_chapitre2_pipeline/pipeline/validate.py
+        python -m py_compile tp_chapitre2_pipeline/pipeline/orchestrate.py
